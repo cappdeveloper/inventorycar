@@ -1,0 +1,44 @@
+﻿@model ChallengerApp.Models.UserProfileViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>User Details</h3>
+            </div>
+            <div class="panel-body">
+
+                <p class="formSep"><strong class="muted">@Html.DisplayNameFor(model => model.UserName):</strong> @Model.Name</p>
+                <p class="formSep"><strong class="muted">@Html.DisplayNameFor(model => model.Name):</strong> @Model.Name</p>
+                <p class="formSep"><strong class="muted">@Html.DisplayNameFor(model => model.RoleName):</strong> @Model.RoleName</p>
+                <p class="formSep"><strong class="muted">@Html.DisplayNameFor(model => model.IsActive):</strong> @Model.IsActive</p>
+                <p class="formSep"><strong class="muted">@Html.DisplayNameFor(model => model.Created):</strong> @Model.Created (UTC)</p>
+                <p class="formSep"><strong class="muted">@Html.DisplayNameFor(model => model.Modified):</strong> @Model.Modified (UTC)</p>
+                <p>
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-primary pull-right"})
+        </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+@section styles{
+    <style>
+        
+    </style>
+}
+
+@section breadcrumbs{
+    <li class="active"><span>User Details</span></li>
+}

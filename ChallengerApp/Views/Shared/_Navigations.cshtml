@@ -1,0 +1,22 @@
+﻿<h5 class="sidebartitle">Navigation</h5>
+<ul class="nav nav-pills nav-stacked nav-bracket">
+    <li><a href="@Url.Action("Register","Account")"><i class="fa fa-truck"></i><span>Register Account</span></a></li>
+    <li><a href="@Url.Action("Login","Account")"><i class="fa fa-truck"></i><span>Login</span></a></li>
+
+    @if (Request.IsAuthenticated)
+    { 
+        <li><a href="@Url.Action("Index","Vehicle")"><i class="fa fa-truck"></i><span>Vehicles</span></a></li>
+
+    }
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+
+        <li class="nav-parent">
+            <a href="#"><i class="fa fa-gear"></i><span>Admin</span></a>
+            <ul class="children">
+                <li><a href="@Url.Action("Index","UserAccounts")"><i class="fa fa-users"></i>Users Account</a></li>
+            </ul>
+        </li>
+    }
+
+</ul>

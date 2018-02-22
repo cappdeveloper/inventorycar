@@ -1,0 +1,108 @@
+﻿@model IEnumerable<ChallengerApp.Models.UserProfileViewModel>
+
+@{
+    ViewBag.Title = "Users";
+    
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a href="@Url.Action("CreateEdit", "UserAccounts")" class="btn btn-primary">[+] Create New</a>
+        </div>
+        <h3 class="panel-title">Users Account</h3>
+        <p></p>
+    </div>
+    <div class="panel-body">
+        @Html.Partial("_InlineAlerts")
+        
+        <br />
+        <div class="table-responsive">
+            <table class="table" id="challenger-datatable">
+                <thead>
+                    <tr>
+                        <th>@Html.LabelFor(model => model.ElementAt(0).Name)</th>
+                        <th>@Html.LabelFor(model => model.ElementAt(0).UserName)</th>
+                        <th>@Html.LabelFor(model => model.ElementAt(0).RoleName)</th>
+                        <th>@Html.LabelFor(model => model.ElementAt(0).IsActive)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.Name)</td>
+                            <td>@Html.DisplayFor(model => item.UserName)</td>
+                            <td>@Html.DisplayFor(model => item.RoleName)</td>
+                            <td>@Html.DisplayFor(model => item.IsActive)</td>
+                            <td class="text-left  fit-content">
+                                <a title="Edit" class="btn btn-primary btn-circle glyphicon glyphicon-edit" href="@Url.Action("CreateEdit", "UserAccounts", new { id = item.UserId })"></a>
+                                <a title="Delete" id="@item.UserId" class="btn btn-danger btn-circle glyphicon glyphicon-trash delete-link" href="@Url.Action("Delete", "UserAccounts")"></a>
+                                <a title="Details" class="btn btn-info btn-circle glyphicon glyphicon-list" href="@Url.Action("Details", "UserAccounts", new { id = item.UserId })"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- table-responsive -->
+    </div>
+</div>
+@section styles{
+    <link href="~/Content/css/jquery.datatables.css" rel="stylesheet" />
+}
+
+@section breadcrumbs{
+    <li class="active"><span>User Accounts</span></li>
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery.datatables.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+
+            //jQuery('#challenger-datatable').dataTable({
+            //    "sPaginationType": "full_numbers",
+
+            //});
+
+            $('#challenger-datatable').dataTable(
+            {
+                "sPaginationType": "full_numbers",
+                "aoColumnDefs": [
+                    { 'bSortable': false, 'aTargets': [-1, -2, -3, -4] }
+                ]
+            });
+
+            // Chosen Select
+            jQuery("select").chosen({
+                'min-width': '100px',
+                'white-space': 'nowrap',
+                disable_search_threshold: 10
+            });
+
+            // Delete row in a table
+            jQuery('.delete-row').click(function () {
+                var c = confirm("Continue delete?");
+                if (c)
+                    jQuery(this).closest('tr').fadeOut(function () {
+                        jQuery(this).remove();
+                    });
+
+                return false;
+            });
+
+            // Show aciton upon row hover
+            jQuery('.table-hidaction tbody tr').hover(function () {
+                jQuery(this).find('.table-action-hide a').animate({ opacity: 1 });
+            }, function () {
+                jQuery(this).find('.table-action-hide a').animate({ opacity: 0 });
+            });
+
+
+        });
+    </script>
+}

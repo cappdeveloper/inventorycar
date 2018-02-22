@@ -1,0 +1,10 @@
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\Challenger.Data.dll.config
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\Challenger.Data.dll
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\Challenger.Data.pdb
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\EntityFramework.dll
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\EntityFramework.xml
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\obj\Debug\Challenger.Data.csproj.CoreCompileInputs.cache
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\obj\Debug\Challenger.Data.dll
+C:\Users\vikas\source\repos\taskinventory\inventory\Challenger.Data\obj\Debug\Challenger.Data.pdb

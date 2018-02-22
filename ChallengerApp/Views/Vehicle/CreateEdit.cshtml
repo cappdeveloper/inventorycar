@@ -1,0 +1,82 @@
+﻿@model ChallengerApp.Models.vehicletype
+@{
+    Layout = null;
+}
+
+
+
+
+
+<div class="row">
+
+
+    @using (Html.BeginForm("CreateEdit", "Vehicle", FormMethod.Post, new { id = "VehicleForm", @class = "form-horizontal" }))
+    {
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="col-md-12">
+            <div class="panel panel-dark">
+                <div class="panel-heading">
+
+                    <h4 class="panel-title"> @ViewBag.Action</h4>
+                    <p>
+                    </p>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Brand, new { @class = "col-sm-3 control-label" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.Brand, new { @class = "form-control" })
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Model, new { @class = "col-sm-3 control-label" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.Model, new { @class = "form-control", })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Year, new { @class = "col-sm-3 control-label" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.Year, new { @class = "form-control", })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Price, new { @class = "col-sm-3 control-label" })
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(model => model.Price, new { @class = "form-control", })
+
+                                <input type="hidden" id="UserName" name="UserName" value="@WebSecurity.CurrentUserName" />
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3">Is New</div>
+                            <div class="col-sm-9">
+
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(model => model.IsNew)
+                                </div>
+                            </div>
+
+                            </div>
+
+                      
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
